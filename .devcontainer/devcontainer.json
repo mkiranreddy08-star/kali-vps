@@ -1,22 +1,15 @@
 {
-  "name": "Kali Linux VPS",
-  "image": "kalilinux/kali-rolling",
-  "features": {
-    "ghcr.io/devcontainers/features/docker-in-docker:2": {}
-  },
-  "postCreateCommand": "apt-get update && apt-get install -y kali-linux-core sudo git curl wget nano",
-  "remoteUser": "root",
-  "runArgs": [
-    "--cap-add=SYS_PTRACE",
-    "--security-opt", "seccomp=unconfined"
-  ],
-  "overrideCommand": false,
+  "name": "Hacking VPS",
+  "build": { "dockerfile": "Dockerfile" },
+  "postCreateCommand": "mkdir -p scripts configs wordlists outputs",
   "customizations": {
     "vscode": {
-      "extensions": [
-        "ms-vscode.cpptools",
-        "ms-python.python"
-      ]
+      "extensions": ["ms-azuretools.vscode-docker"],
+      "settings": {
+        "terminal.integrated.defaultProfile.linux": "bash"
+      }
     }
-  }
+  },
+  "remoteUser": "root"
 }
+The postCreateComma
